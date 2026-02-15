@@ -92,10 +92,110 @@
         <button class="btn btn-primary" onclick="closeEasterEgg()">Close</button>
     </div>
 
+    <!-- AI Chatbot -->
+    <div class="ai-chat-container" id="aiChatContainer">
+        <div class="ai-chat-header">
+            <h3>AI Assistant</h3>
+            <button class="ai-close-btn" id="aiCloseBtn">&times;</button>
+        </div>
+        <div class="ai-chat-messages" id="aiChatMessages">
+            <div class="ai-message bot">
+                <div class="message-content">
+                    Hi! I'm your AI assistant. Ask me anything about Aryan's projects, skills, or experience!
+                </div>
+            </div>
+        </div>
+        <div class="ai-chat-input">
+            <input type="text" id="aiChatInput" placeholder="Ask me anything...">
+            <button id="aiSendBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- AI Chat Toggle Button -->
+    <button class="ai-chat-toggle" id="aiChatToggle" title="AI Assistant (Alt+A)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span class="ai-badge">AI</span>
+    </button>
+
+    <!-- Music Player -->
+    <div class="music-player" id="musicPlayer">
+        <div class="music-info">
+            <div class="music-title">Dhurandhhar Title Track</div>
+            <div class="music-artist">Original Soundtrack</div>
+        </div>
+        <div class="music-controls">
+            <button id="prevBtn" title="Previous">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/></svg>
+            </button>
+            <button id="playPauseBtn" class="play-btn" title="Play/Pause (Space)">
+                <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+            </button>
+            <button id="nextBtn" title="Next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+            </button>
+            <input type="range" id="volumeSlider" min="0" max="100" value="70" title="Volume">
+        </div>
+        <button class="music-close" id="musicCloseBtn">&times;</button>
+    </div>
+
+    <!-- Keyboard Shortcuts Panel -->
+    <div class="shortcuts-panel" id="shortcutsPanel">
+        <div class="shortcuts-header">
+            <h3>⌨️ Keyboard Shortcuts</h3>
+            <button class="shortcuts-close" id="shortcutsCloseBtn">&times;</button>
+        </div>
+        <div class="shortcuts-content">
+            <div class="shortcut-item">
+                <kbd>?</kbd>
+                <span>Show/Hide Shortcuts</span>
+            </div>
+            <div class="shortcut-item">
+                <kbd>Alt</kbd> + <kbd>A</kbd>
+                <span>Open AI Assistant</span>
+            </div>
+            <div class="shortcut-item">
+                <kbd>Alt</kbd> + <kbd>M</kbd>
+                <span>Toggle Music Player</span>
+            </div>
+            <div class="shortcut-item">
+                <kbd>Space</kbd>
+                <span>Play/Pause Music</span>
+            </div>
+            <div class="shortcut-item">
+                <kbd>Alt</kbd> + <kbd>T</kbd>
+                <span>Toggle Theme</span>
+            </div>
+            <div class="shortcut-item">
+                <kbd>H</kbd>
+                <span>Go to Home</span>
+            </div>
+            <div class="shortcut-item">
+                <kbd>P</kbd>
+                <span>Go to Projects</span>
+            </div>
+            <div class="shortcut-item">
+                <kbd>C</kbd>
+                <span>Go to Contact</span>
+            </div>
+            <div class="shortcut-item">
+                <kbd>Esc</kbd>
+                <span>Close Panels</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Scroll to Top Button -->
     <button class="scroll-to-top" id="scrollToTop" title="Back to top">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
     </button>
+
+    <!-- Audio Element -->
+    <audio id="audioPlayer" preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
 
     <!-- Footer -->
     <footer class="footer">
@@ -131,5 +231,8 @@
 
     <script src="/js/main.js"></script>
     <script src="/js/hero-animation.js"></script>
+    <script src="/js/ai-chat.js"></script>
+    <script src="/js/shortcuts.js"></script>
+    <script src="/js/music-player.js"></script>
 </body>
 </html>
