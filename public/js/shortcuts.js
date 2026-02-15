@@ -43,32 +43,12 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Alt + M: Toggle Music Player
-        if (e.altKey && e.key.toLowerCase() === 'm') {
-            e.preventDefault();
-            const musicPlayer = document.getElementById('musicPlayer');
-            if (musicPlayer) {
-                musicPlayer.classList.toggle('minimized');
-            }
-            return;
-        }
-
         // Alt + T: Toggle Theme
         if (e.altKey && e.key.toLowerCase() === 't') {
             e.preventDefault();
             document.body.classList.toggle('light-mode');
             const currentTheme = document.body.classList.contains('light-mode') ? 'light' : 'dark';
             localStorage.setItem('theme', currentTheme);
-            return;
-        }
-
-        // Space: Play/Pause Music (only if not in input)
-        if (e.key === ' ' || e.code === 'Space') {
-            e.preventDefault();
-            const playPauseBtn = document.getElementById('playPauseBtn');
-            if (playPauseBtn) {
-                playPauseBtn.click();
-            }
             return;
         }
 
