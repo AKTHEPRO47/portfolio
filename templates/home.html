@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+        <div class="profile-image-container">
+            <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Neil Aryan Kota" class="profile-image">
+        </div>
+        <h1 class="hero-title">
+            Hi, I'm <span style="color: white;">Aryan</span>
+        </h1>
+        <p class="hero-subtitle">AI & Analytics Student | Product Builder | Aspiring Entrepreneur</p>
+        <div class="hero-buttons">
+            <a href="/projects" class="btn btn-primary">View Projects</a>
+            <a href="/contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+        <div class="hero-links">
+            <a href="https://github.com/AKTHEPRO47" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/neil-aryan-kota-9ab932304/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="mailto:aryan@akitavault.com">aryan@akitavault.com</a>
+        </div>
+    </div>
+</div>
+
+<section class="intro-section">
+    <div class="container">
+        <h2>Building Products That Matter</h2>
+        <p class="lead">
+            I'm passionate about creating technology solutions that address real-world problems, 
+            from AI-powered safety platforms to intergenerational engagement systems.
+        </p>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/hero-animation.js') }}"></script>
+{% endblock %}

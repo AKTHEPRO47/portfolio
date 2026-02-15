@@ -1,0 +1,234 @@
+{% extends "base.html" %}
+
+{% block title %}Projects - Neil Aryan Kota{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1>Projects</h1>
+    </div>
+</div>
+
+<section class="projects-section">
+    <div class="container">
+        <div class="projects-grid">
+            
+            <!-- AkitaVault -->
+            <div class="project-card" data-project="akitavault">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="project-info">
+                        <h2>AkitaVault</h2>
+                        <p>Agentic AI platform that helps students browse safely by filtering risky content and guiding healthier online habits through intelligent content analysis and personalized recommendations.</p>
+                        <div class="project-tags">
+                            <span class="tag">AI/ML</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">Computer Vision</span>
+                        </div>
+                    </div>
+                    <button class="expand-btn">
+                        <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        <svg class="chevron-up" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+                    </button>
+                </div>
+                <div class="project-details">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li><strong>Intelligent Content Filtering:</strong> Real-time analysis of text and images using ML models to score content safety</li>
+                        <li><strong>Transparent Blocking System:</strong> Clear explanations for why content is blocked or allowed, promoting digital literacy</li>
+                        <li><strong>Adaptive Learning:</strong> Personalized filtering that improves based on past examples and user feedback</li>
+                        <li><strong>Dashboard Analytics:</strong> Comprehensive insights for parents and schools on browsing patterns and blocked content</li>
+                        <li><strong>Security-First Design:</strong> End-to-end encryption and privacy-focused architecture</li>
+                    </ul>
+                    
+                    <h3>Technical Stack</h3>
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>TensorFlow</span>
+                        <span>OpenCV</span>
+                        <span>NLP</span>
+                        <span>React</span>
+                        <span>Tailwind CSS</span>
+                        <span>PostgreSQL</span>
+                    </div>
+
+                    <h3>Impact</h3>
+                    <p>Designed to create safer online learning environments for students, helping schools and parents protect young users while maintaining transparency and educational value. The platform aims to reduce exposure to inappropriate content while teaching responsible digital citizenship.</p>
+                </div>
+            </div>
+
+            <!-- BridgeGen -->
+            <div class="project-card" data-project="bridgegen">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div class="project-info">
+                        <h2>BridgeGen</h2>
+                        <p>Full-stack web application bridging Singapore's elderly and youth populations through collaborative features, gamification, and cultural exchange. Combats social isolation and the digital divide through meaningful intergenerational connections.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Bootstrap</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                        </div>
+                    </div>
+                    <button class="expand-btn">
+                        <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        <svg class="chevron-up" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+                    </button>
+                </div>
+                <div class="project-details">
+                    <h3>Core Features Developed</h3>
+                    <ul>
+                        <li><strong>Dual User System:</strong> Separate youth and elderly interfaces with role-based authentication and NRIC validation ensuring secure access tailored to each user group's needs</li>
+                        <li><strong>Tech Help Matching:</strong> Real-time request system where youth volunteers assist elderly users with technology issues, bridging the digital divide through direct support</li>
+                        <li><strong>Cooking Game:</strong> Cooking Fever-style interactive minigame featuring 25 culturally significant recipes with difficulty scaling and daily play limits to encourage consistent engagement</li>
+                        <li><strong>Points & Rewards System:</strong> Dual currency economy (XP and Reward Points) with exchange mechanisms and redeemable shop items that incentivize participation and continued activity</li>
+                        <li><strong>Calendar & Events:</strong> Comprehensive scheduling system to coordinate face-to-face youth-elderly activities, meetups, and community gatherings</li>
+                        <li><strong>Voice Commands:</strong> Hands-free navigation with 8 voice-activated shortcuts designed for accessibility, making the platform easier for elderly users to navigate</li>
+                        <li><strong>BridgeBot:</strong> Built-in AI assistant providing instant contextual help and guidance throughout the application, reducing friction and improving user experience</li>
+                        <li><strong>Rewards Shop:</strong> Redemption marketplace offering food vouchers, merchandise, experiences, and hawker centre credits that users can purchase with earned points</li>
+                        <li><strong>Profile Management:</strong> Comprehensive user profiles with picture uploads, bio editing, activity tracking, and personal dashboard showing progress and achievements</li>
+                        <li><strong>Email Verification:</strong> Secure OTP-based email authentication system using Gmail SMTP integration to ensure account security and legitimate users</li>
+                        <li><strong>Admin Dashboard:</strong> Backend management system for user oversight, content moderation, reward fulfillment, and platform analytics</li>
+                        <li><strong>Multi-Language Support:</strong> Language options to accommodate Singapore's multilingual elderly population</li>
+                    </ul>
+
+                    <h3>Screenshots</h3>
+                    <div class="screenshots-grid">
+                        <img src="{{ url_for('static', filename='images/projects/bridgegen/Screenshot 2026-02-15 134506.png') }}" alt="BridgeGen Dashboard">
+                        <img src="{{ url_for('static', filename='images/projects/bridgegen/Screenshot 2026-02-15 134537.png') }}" alt="BridgeGen Events">
+                        <img src="{{ url_for('static', filename='images/projects/bridgegen/Screenshot 2026-02-15 134547.png') }}" alt="BridgeGen Profiles">
+                        <img src="{{ url_for('static', filename='images/projects/bridgegen/Screenshot 2026-02-15 134617.png') }}" alt="BridgeGen Map View">
+                    </div>
+                    
+                    <h3>Technical Stack</h3>
+                    <div class="tech-stack">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>Bootstrap</span>
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>Jinja2</span>
+                        <span>SQLite</span>
+                        <span>Google Maps API</span>
+                    </div>
+
+                    <h3>Overall Value & Impact</h3>
+                    <p>BridgeGen combats social isolation and the digital divide by creating meaningful connections between Singapore's youth and elderly populations, turning technological gaps into opportunities for mutual learning and cultural preservation. Through gamification, rewards, and accessible design, the platform transforms volunteering from obligation into an engaging experience while giving elderly users the confidence and support to navigate an increasingly digital world.</p>
+                </div>
+            </div>
+
+            <!-- Findustry -->
+            <div class="project-card" data-project="findustry">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                    </div>
+                    <div class="project-info">
+                        <h2>Findustry</h2>
+                        <p>B2B marketplace platform connecting importers with businesses through smart matching, streamlined discovery, and lead generation with a focus on UI polish and user experience.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Vite</span>
+                            <span class="tag">Tailwind CSS</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                    </div>
+                    <button class="expand-btn">
+                        <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        <svg class="chevron-up" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+                    </button>
+                </div>
+                <div class="project-details">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li><strong>Smart Matching Algorithm:</strong> Category-based matching system connecting businesses with relevant importers</li>
+                        <li><strong>Advanced Filtering:</strong> Multi-criteria search including product categories, regions, certifications, and minimum order quantities</li>
+                        <li><strong>Detailed Profiles:</strong> Comprehensive importer profiles with company info, product catalogs, and verification badges</li>
+                        <li><strong>ChatGPT-inspired UI:</strong> Clean, modern interface with conversational design patterns for intuitive navigation</li>
+                        <li><strong>Lead Management:</strong> Built-in CRM-lite features for tracking inquiries and managing supplier relationships</li>
+                        <li><strong>Request for Quote (RFQ):</strong> Streamlined system for businesses to submit sourcing requests</li>
+                    </ul>
+                    
+                    <h3>Technical Stack</h3>
+                    <div class="tech-stack">
+                        <span>React</span>
+                        <span>Vite</span>
+                        <span>Tailwind CSS</span>
+                        <span>TypeScript</span>
+                        <span>Firebase</span>
+                        <span>Firestore</span>
+                        <span>React Router</span>
+                        <span>Zustand</span>
+                    </div>
+
+                    <h3>Business Value</h3>
+                    <p>Findustry reduces friction in B2B sourcing by providing SMEs with quick access to verified importers and suppliers. The platform addresses common pain points like supplier discovery, trust verification, and initial communication barriers. By focusing on UI/UX polish and fast discovery workflows, it significantly shortens the time from need identification to supplier engagement.</p>
+                </div>
+            </div>
+
+            <!-- SGResolve -->
+            <div class="project-card" data-project="sgresolve">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div class="project-info">
+                        <h2>SGResolve</h2>
+                        <p>AI-powered smart city reporting platform enabling residents to efficiently report and track municipal issues with intelligent classification and automated routing.</p>
+                        <div class="project-tags">
+                            <span class="tag">AI/ML</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">React</span>
+                            <span class="tag">Computer Vision</span>
+                        </div>
+                    </div>
+                    <button class="expand-btn">
+                        <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        <svg class="chevron-up" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+                    </button>
+                </div>
+                <div class="project-details">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li><strong>AI Image Analysis:</strong> Computer vision models classify issues from photos (potholes, litter, damaged infrastructure)</li>
+                        <li><strong>NLP Text Processing:</strong> Natural language understanding to extract key details from issue descriptions</li>
+                        <li><strong>Intelligent Routing:</strong> Automatic assignment to relevant departments based on issue type and location</li>
+                        <li><strong>Conversational Chatbot:</strong> Guided reporting flow that collects necessary information through natural dialogue</li>
+                        <li><strong>Progress Tracking:</strong> Real-time status updates and resolution timelines for reported issues</li>
+                        <li><strong>Analytics Dashboard:</strong> City-wide insights on issue types, response times, and hotspot mapping</li>
+                    </ul>
+                    
+                    <h3>Technical Stack</h3>
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>TensorFlow</span>
+                        <span>OpenCV</span>
+                        <span>NLP</span>
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>MongoDB</span>
+                        <span>Google Maps API</span>
+                    </div>
+
+                    <h3>Smart City Innovation</h3>
+                    <p>SGResolve modernizes civic engagement by making issue reporting as simple as taking a photo and describing the problem. The AI reduces administrative burden by automatically categorizing and routing reports, while the chatbot ensures high-quality submissions with all necessary details. This leads to faster resolutions, better resource allocation, and improved citizen satisfaction with municipal services.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/projects.js') }}"></script>
+{% endblock %}

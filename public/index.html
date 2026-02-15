@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neil Aryan Kota - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">Neil Aryan Kota</a>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/projects.html">Projects</a></li>
+                <li><a href="/skills.html">Skills</a></li>
+                <li><a href="/experience.html">Experience</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="hero-section">
+            <canvas id="hero-canvas"></canvas>
+            <div class="hero-content">
+                <div class="profile-image-container">
+                    <img src="/images/profile.jpg" alt="Neil Aryan Kota" class="profile-image">
+                </div>
+                <h1 class="hero-title">
+                    Hi, I'm <span style="color: white;">Aryan</span>
+                </h1>
+                <p class="hero-subtitle">AI & Analytics Student | Product Builder | Aspiring Entrepreneur</p>
+                <div class="hero-buttons">
+                    <a href="/projects.html" class="btn btn-primary">View Projects</a>
+                    <a href="/contact.html" class="btn btn-secondary">Get in Touch</a>
+                </div>
+                <div class="hero-links">
+                    <a href="https://github.com/AKTHEPRO47" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/neil-aryan-kota-9ab932304/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:aryan@akitavault.com">aryan@akitavault.com</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="intro-section">
+            <div class="container">
+                <h2>Building Products That Matter</h2>
+                <p class="lead">
+                    I'm passionate about creating technology solutions that address real-world problems, 
+                    from AI-powered safety platforms to intergenerational engagement systems.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Easter Egg Overlay -->
+    <div class="easter-egg-overlay" id="easterEggOverlay"></div>
+    <div id="viratEasterEgg">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Virat_Kohli_during_the_India_vs_Aus_4th_Test_match_at_Narendra_Modi_Stadium_on_09_March_2023.jpg/800px-Virat_Kohli_during_the_India_vs_Aus_4th_Test_match_at_Narendra_Modi_Stadium_on_09_March_2023.jpg" alt="Virat Kohli" onerror="this.src='https://static.toiimg.com/thumb/msid-105447827,width-1280,height-720,resizemode-4/105447827.jpg'">
+        <h2>King Kohli!</h2>
+        <p>"Chase your dreams like Virat chases runs!"</p>
+        <p style="font-size: 1rem; font-style: italic;">Press ESC to close</p>
+        <button class="btn btn-primary" onclick="closeEasterEgg()">Close</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Neil Aryan Kota</h3>
+                    <p>AI & Analytics Student | Product Builder | Aspiring Entrepreneur</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://github.com/AKTHEPRO47" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://www.linkedin.com/in/neil-aryan-kota-9ab932304/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="mailto:aryan@akitavault.com">Email</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Neil Aryan Kota. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/hero-animation.js"></script>
+</body>
+</html>

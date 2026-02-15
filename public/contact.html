@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Neil Aryan Kota</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">Neil Aryan Kota</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/projects.html">Projects</a></li>
+                <li><a href="/skills.html">Skills</a></li>
+                <li><a href="/experience.html">Experience</a></li>
+                <li><a href="/contact.html" class="active">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1>Get In Touch</h1>
+            </div>
+        </div>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>Let's Connect</h2>
+                        <p>
+                            I'm always interested in hearing about new projects, opportunities, or just 
+                            having a conversation about technology and innovation. Feel free to reach out!
+                        </p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <h3>Email</h3>
+                                <a href="mailto:aryan@akitavault.com">aryan@akitavault.com</a>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <h3>GitHub</h3>
+                                <a href="https://github.com/AKTHEPRO47" target="_blank" rel="noopener noreferrer">
+                                    github.com/AKTHEPRO47
+                                </a>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <h3>LinkedIn</h3>
+                                <a href="https://www.linkedin.com/in/neil-aryan-kota-9ab932304/" target="_blank" rel="noopener noreferrer">
+                                    linkedin.com/in/neil-aryan-kota
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <form id="contactForm" class="contact-form" action="https://formspree.io/f/meelgrqz" method="POST">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="6" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                        <div id="formMessage" class="form-message"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Easter Egg Overlay -->
+    <div class="easter-egg-overlay" id="easterEggOverlay"></div>
+    <div id="viratEasterEgg">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Virat_Kohli_during_the_India_vs_Aus_4th_Test_match_at_Narendra_Modi_Stadium_on_09_March_2023.jpg/800px-Virat_Kohli_during_the_India_vs_Aus_4th_Test_match_at_Narendra_Modi_Stadium_on_09_March_2023.jpg" alt="Virat Kohli" onerror="this.src='https://static.toiimg.com/thumb/msid-105447827,width-1280,height-720,resizemode-4/105447827.jpg'">
+        <h2>King Kohli!</h2>
+        <p>"Chase your dreams like Virat chases runs!"</p>
+        <p style="font-size: 1rem; font-style: italic;">Press ESC to close</p>
+        <button class="btn btn-primary" onclick="closeEasterEgg()">Close</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Neil Aryan Kota</h3>
+                    <p>AI & Analytics Student | Product Builder | Aspiring Entrepreneur</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://github.com/AKTHEPRO47" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://www.linkedin.com/in/neil-aryan-kota-9ab932304/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="mailto:aryan@akitavault.com">Email</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Neil Aryan Kota. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
