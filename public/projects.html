@@ -36,13 +36,28 @@
         <div class="page-header">
             <div class="container">
                 <h1>Projects</h1>
+                <p>Explore my portfolio of innovative solutions</p>
             </div>
         </div>
 
         <section class="projects-section">
             <div class="container">
-                <div class="projects-grid">
-                    
+                <!-- Search and Filter Bar -->
+                <div class="projects-controls">
+                    <div class="search-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        <input type="text" id="projectSearch" placeholder="Search projects by name, technology, or keyword...">
+                    </div>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="react">React</button>
+                        <button class="filter-btn" data-filter="python">Python</button>
+                        <button class="filter-btn" data-filter="flask">Flask</button>
+                        <button class="filter-btn" data-filter="firebase">Firebase</button>
+                    </div>
+                </div>
+
+                <div class="projects-grid">\n                    
                     <!-- AkitaVault -->
                     <div class="project-card" data-project="akitavault">
                         <div class="project-header">
@@ -299,5 +314,6 @@
 
     <script src="/js/main.js"></script>
     <script src="/js/projects.js"></script>
+    <script src="/js/projects-enhanced.js"></script>
 </body>
 </html>
