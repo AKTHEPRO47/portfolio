@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Scroll to Top Button
     const scrollToTopBtn = document.getElementById('scrollToTop');
+    const scrollProgress = document.getElementById('scrollProgress');
     
     if (scrollToTopBtn) {
         window.addEventListener('scroll', () => {
@@ -98,16 +99,62 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Scroll progress bar
+    if (scrollProgress) {
+        const updateProgress = () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            scrollProgress.style.width = `${progress}%`;
+        };
+
+        window.addEventListener('scroll', updateProgress);
+        window.addEventListener('resize', updateProgress);
+        updateProgress();
+    }
+
     // Mobile menu toggle
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const navLinks = document.querySelector('.nav-links');
+    const navOverlay = document.getElementById('navOverlay');
     
     if (mobileMenuToggle) {
         mobileMenuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             mobileMenuToggle.classList.toggle('active');
+            if (navOverlay) {
+                navOverlay.classList.toggle('active');
+            }
+            document.body.classList.toggle('menu-open');
         });
     }
+
+    const closeMobileMenu = () => {
+        if (navLinks) {
+            navLinks.classList.remove('active');
+        }
+        if (mobileMenuToggle) {
+            mobileMenuToggle.classList.remove('active');
+        }
+        if (navOverlay) {
+            navOverlay.classList.remove('active');
+        }
+        document.body.classList.remove('menu-open');
+    };
+
+    if (navOverlay) {
+        navOverlay.addEventListener('click', closeMobileMenu);
+    }
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            closeMobileMenu();
+        }
+    });
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -165,6 +212,11 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollObserver.observe(el);
     });
 
+    document.querySelectorAll('.page-header, .intro-section, .skills-section, .experience-section, .projects-section').forEach(el => {
+        el.classList.add('scroll-fade-up');
+        scrollObserver.observe(el);
+    });
+
     // Animate skill bars on scroll with actual animation
     const skillObserverOptions = {
         threshold: 0.5,
@@ -199,6 +251,39 @@ document.addEventListener('DOMContentLoaded', () => {
             this.style.transform = 'translateY(0)';
         });
     });
+
+    // Parallax scroll effect
+    const parallaxItems = document.querySelectorAll('[data-parallax]');
+    if (parallaxItems.length) {
+        const handleParallax = () => {
+            const scrollTop = window.pageYOffset;
+            parallaxItems.forEach(item => {
+                const speed = parseFloat(item.getAttribute('data-parallax')) || 0.2;
+                item.style.transform = `translateY(${scrollTop * speed}px)`;
+            });
+        };
+        window.addEventListener('scroll', () => requestAnimationFrame(handleParallax));
+        handleParallax();
+    }
+
+    // Copy email button (contact page)
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    const copyEmailStatus = document.getElementById('copyEmailStatus');
+    if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', async () => {
+            const email = copyEmailBtn.getAttribute('data-email');
+            try {
+                await navigator.clipboard.writeText(email);
+                if (copyEmailStatus) {
+                    copyEmailStatus.textContent = 'Email copied!';
+                }
+            } catch (err) {
+                if (copyEmailStatus) {
+                    copyEmailStatus.textContent = 'Copy failed. Please copy manually.';
+                }
+            }
+        });
+    }
 
     // Virat Kohli Easter Egg - Press 'V' then 'K'
     let keySequence = '';

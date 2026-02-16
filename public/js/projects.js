@@ -16,6 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    // Initialize carousels
+    document.querySelectorAll('.carousel').forEach(setupCarousel);
 });
 
 function toggleProject(card) {
@@ -38,4 +41,56 @@ function toggleProject(card) {
             card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }, 100);
     }
+}
+
+function setupCarousel(carousel) {
+    const track = carousel.querySelector('.carousel-track');
+    const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+    const prevBtn = carousel.querySelector('.carousel-btn.prev');
+    const nextBtn = carousel.querySelector('.carousel-btn.next');
+    const dots = Array.from(carousel.querySelectorAll('.carousel-dot'));
+
+    if (!track || slides.length === 0) return;
+
+    let index = 0;
+    let autoTimer;
+
+    const update = () => {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    };
+
+    const goNext = () => {
+        index = (index + 1) % slides.length;
+        update();
+    };
+
+    const goPrev = () => {
+        index = (index - 1 + slides.length) % slides.length;
+        update();
+    };
+
+    if (nextBtn) nextBtn.addEventListener('click', goNext);
+    if (prevBtn) prevBtn.addEventListener('click', goPrev);
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            index = i;
+            update();
+        });
+    });
+
+    const startAuto = () => {
+        autoTimer = setInterval(goNext, 4500);
+    };
+
+    const stopAuto = () => {
+        clearInterval(autoTimer);
+    };
+
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+
+    update();
+    startAuto();
 }

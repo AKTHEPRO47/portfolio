@@ -11,6 +11,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <div class="bg-animated" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -30,11 +39,12 @@
             </button>
         </div>
     </nav>
+    <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
     <!-- Main Content -->
     <main>
         <div class="page-header">
-            <div class="container">
+            <div class="container" data-parallax="0.15">
                 <h1>Projects</h1>
                 <p>Explore my portfolio of innovative solutions</p>
             </div>
@@ -47,11 +57,11 @@
                     <div class="project-card" data-project="akitavault">
                         <div class="project-header">
                             <div class="project-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                <img src="/images/akitavault-logo.png" alt="AkitaVault Logo" class="project-logo">
                             </div>
                             <div class="project-info">
                                 <h2>AkitaVault</h2>
-                                <p>Agentic AI platform that helps students browse safely by filtering risky content and guiding healthier online habits through intelligent content analysis and personalized recommendations.</p>
+                                <p>As <strong>CEO & Founder</strong>, built an agentic AI platform that helps students browse safely by filtering risky content and guiding healthier online habits through intelligent content analysis and personalized recommendations.</p>
                                 <div class="project-tags">
                                     <span class="tag">AI/ML</span>
                                     <span class="tag">Python</span>
@@ -141,19 +151,81 @@
 
                             <h3>Screenshots</h3>
                             <div class="project-media">
-                                <div class="screenshots-grid">
-                                    <img src="images/bridgegen/Screenshot 2026-02-15 134506.png" alt="BridgeGen Dashboard" class="screenshot">
-                                    <img src="images/bridgegen/Screenshot 2026-02-15 134537.png" alt="BridgeGen Events" class="screenshot">
-                                    <img src="images/bridgegen/Screenshot 2026-02-15 134547.png" alt="BridgeGen Profiles" class="screenshot">
-                                    <img src="images/bridgegen/Screenshot 2026-02-15 134617.png" alt="BridgeGen Map View" class="screenshot">
-                                    <img src="images/bridgegen/Screenshot 2026-02-15 134627.png" alt="BridgeGen Activities" class="screenshot">
-                                    <img src="images/bridgegen/Screenshot 2026-02-15 134633.png" alt="BridgeGen Points System" class="screenshot">
-                                    <img src="images/bridgegen/Screenshot 2026-02-15 134640.png" alt="BridgeGen Rewards" class="screenshot">
+                                <div class="carousel" data-carousel="bridgegen">
+                                    <button class="carousel-btn prev" aria-label="Previous screenshot">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                                    </button>
+                                    <div class="carousel-track">
+                                        <div class="carousel-slide"><img src="images/bridgegen/Screenshot 2026-02-15 134506.png" alt="BridgeGen Dashboard" class="screenshot" loading="lazy"></div>
+                                        <div class="carousel-slide"><img src="images/bridgegen/Screenshot 2026-02-15 134537.png" alt="BridgeGen Events" class="screenshot" loading="lazy"></div>
+                                        <div class="carousel-slide"><img src="images/bridgegen/Screenshot 2026-02-15 134547.png" alt="BridgeGen Profiles" class="screenshot" loading="lazy"></div>
+                                        <div class="carousel-slide"><img src="images/bridgegen/Screenshot 2026-02-15 134617.png" alt="BridgeGen Map View" class="screenshot" loading="lazy"></div>
+                                        <div class="carousel-slide"><img src="images/bridgegen/Screenshot 2026-02-15 134627.png" alt="BridgeGen Activities" class="screenshot" loading="lazy"></div>
+                                        <div class="carousel-slide"><img src="images/bridgegen/Screenshot 2026-02-15 134633.png" alt="BridgeGen Points System" class="screenshot" loading="lazy"></div>
+                                        <div class="carousel-slide"><img src="images/bridgegen/Screenshot 2026-02-15 134640.png" alt="BridgeGen Rewards" class="screenshot" loading="lazy"></div>
+                                    </div>
+                                    <button class="carousel-btn next" aria-label="Next screenshot">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                                    </button>
+                                    <div class="carousel-dots" role="tablist" aria-label="BridgeGen screenshots">
+                                        <button class="carousel-dot" aria-label="Go to slide 1"></button>
+                                        <button class="carousel-dot" aria-label="Go to slide 2"></button>
+                                        <button class="carousel-dot" aria-label="Go to slide 3"></button>
+                                        <button class="carousel-dot" aria-label="Go to slide 4"></button>
+                                        <button class="carousel-dot" aria-label="Go to slide 5"></button>
+                                        <button class="carousel-dot" aria-label="Go to slide 6"></button>
+                                        <button class="carousel-dot" aria-label="Go to slide 7"></button>
+                                    </div>
                                 </div>
                             </div>
 
                             <h3>Overall Value & Impact</h3>
                             <p>BridgeGen combats social isolation and the digital divide by creating meaningful connections between Singapore's youth and elderly populations. Through gamification, rewards, and accessible design, it transforms volunteering into an engaging experience while giving elderly users confidence to navigate an increasingly digital world.</p>
+                        </div>
+                    </div>
+
+                    <!-- Mini Cricket Game -->
+                    <div class="project-card" data-project="cricket-game">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+                            </div>
+                            <div class="project-info">
+                                <h2>Mini Cricket Game</h2>
+                                <p>Extensive Python-based cricket simulation with overs, wickets, momentum shifts, and strategic decisions. Built as a terminal-first game with commentary, scorecards, and match modes.</p>
+                                <div class="project-tags">
+                                    <span class="tag">Python</span>
+                                    <span class="tag">Game Dev</span>
+                                    <span class="tag">CLI</span>
+                                </div>
+                            </div>
+                            <button class="expand-btn">
+                                <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                                <svg class="chevron-up" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+                            </button>
+                        </div>
+                        <div class="project-details">
+                            <h3>Gameplay Highlights</h3>
+                            <ul>
+                                <li><strong>Authentic Match Flow:</strong> Overs, wickets, strike rotation, and run-rate pressure</li>
+                                <li><strong>Shot Selection:</strong> Balanced, aggressive, or defensive batting choices</li>
+                                <li><strong>Bowling Strategy:</strong> Select lines, lengths, and variations to control scoring</li>
+                                <li><strong>Dynamic Commentary:</strong> Play-by-play updates for every delivery</li>
+                                <li><strong>Multiple Modes:</strong> Quick T10, standard T20, and custom overs</li>
+                            </ul>
+
+                            <h3>Technical Stack</h3>
+                            <div class="tech-stack">
+                                <span>Python</span>
+                                <span>OOP</span>
+                                <span>Random Simulation</span>
+                                <span>CLI UX</span>
+                            </div>
+
+                            <h3>Play</h3>
+                            <p>Download the full Python game and run it locally from your terminal.</p>
+                            <a class="btn btn-secondary" href="/downloads/cricket_game.py" download>Download Python Game</a>
+                            <a class="btn btn-primary" href="/cricket.html">Play in Browser</a>
                         </div>
                     </div>
 

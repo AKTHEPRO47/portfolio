@@ -18,9 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
         projects: {
             akitavault: {
                 name: "AkitaVault",
-                description: "AI-powered web filtering and parental control platform featuring smart content analysis, real-time URL blocking, and comprehensive monitoring dashboard.",
+                role: "CEO & Founder",
+                description: "AI-powered web filtering and parental control platform featuring smart content analysis, real-time URL blocking, and comprehensive monitoring dashboard. As CEO & Founder, leading product development and business strategy.",
                 tech: ["React", "Vite", "Tailwind CSS", "Firebase", "Python", "Machine Learning"],
                 highlights: ["87.3% accuracy in content classification", "Real-time threat detection", "Machine learning models"]
+            },
+            cricketgame: {
+                name: "Mini Cricket Game",
+                description: "Extensive Python-based cricket simulation with overs, wickets, strategic shot selection, and dynamic commentary in a terminal-first experience.",
+                tech: ["Python", "OOP", "CLI"],
+                highlights: ["Multiple match modes", "Ball-by-ball commentary", "Scorecards and targets"]
             },
             bridgegen: {
                 name: "BridgeGen",

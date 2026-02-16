@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Cricket Game - Neil Aryan Kota</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <div class="bg-animated" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">Neil Aryan Kota</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/projects.html" class="active">Projects</a></li>
+                <li><a href="/skills.html">Skills</a></li>
+                <li><a href="/experience.html">Experience</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
+    <main>
+        <div class="page-header">
+            <div class="container" data-parallax="0.15">
+                <h1>Mini Cricket Game</h1>
+                <p>Play a full match with overs, wickets, targets, and live commentary.</p>
+            </div>
+        </div>
+
+        <section class="cricket-section">
+            <div class="container">
+                <div class="cricket-layout">
+                    <div class="cricket-panel">
+                        <h2>Match Setup</h2>
+                        <div class="cricket-form">
+                            <label>
+                                Team 1
+                                <input type="text" id="teamAInput" placeholder="Team A" value="Akita Strikers">
+                            </label>
+                            <label>
+                                Team 2
+                                <input type="text" id="teamBInput" placeholder="Team B" value="Vault Challengers">
+                            </label>
+                            <label>
+                                Overs
+                                <select id="oversInput">
+                                    <option value="5">5 Overs (Quick)</option>
+                                    <option value="10">10 Overs</option>
+                                    <option value="20" selected>20 Overs (T20)</option>
+                                </select>
+                            </label>
+                            <div class="cricket-actions">
+                                <button class="btn btn-primary" id="startMatchBtn">Start Match</button>
+                                <button class="btn btn-secondary" id="resetMatchBtn">Reset</button>
+                            </div>
+                        </div>
+
+                        <div class="cricket-controls">
+                            <h3>Shot Selection</h3>
+                            <div class="shot-buttons">
+                                <button class="btn btn-secondary" data-shot="defensive">Defensive (1)</button>
+                                <button class="btn btn-primary" data-shot="balanced">Balanced (2)</button>
+                                <button class="btn btn-secondary" data-shot="aggressive">Aggressive (3)</button>
+                            </div>
+                            <div class="auto-play">
+                                <button class="btn btn-secondary" id="autoOverBtn">Auto Play Over</button>
+                                <span class="hint">Press 1, 2, 3 to bat quickly</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cricket-panel">
+                        <div class="scoreboard">
+                            <div>
+                                <h3 id="battingTeam">-</h3>
+                                <p class="score" id="battingScore">0/0</p>
+                                <p class="overs" id="battingOvers">0.0 overs</p>
+                            </div>
+                            <div>
+                                <h3 id="bowlingTeam">-</h3>
+                                <p class="score" id="bowlingScore">Target: -</p>
+                                <p class="overs" id="requiredRate">Required RR: -</p>
+                            </div>
+                        </div>
+                        <div class="commentary" id="commentaryLog">
+                            <p class="commentary-item">Click "Start Match" to begin.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Neil Aryan Kota</h3>
+                    <p>AI & Analytics Student | Product Builder | Aspiring Entrepreneur</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://github.com/AKTHEPRO47" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://www.linkedin.com/in/neil-aryan-kota-9ab932304/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="mailto:aryan@akitavault.com">Email</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Neil Aryan Kota. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/cricket-game.js"></script>
+</body>
+</html>

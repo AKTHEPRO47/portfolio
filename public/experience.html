@@ -11,6 +11,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <div class="bg-animated" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -30,11 +39,12 @@
             </button>
         </div>
     </nav>
+    <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
     <!-- Main Content -->
     <main>
         <div class="page-header">
-            <div class="container">
+            <div class="container" data-parallax="0.15">
                 <h1>Experience & Education</h1>
             </div>
         </div>

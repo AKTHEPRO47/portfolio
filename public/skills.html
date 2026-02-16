@@ -7,10 +7,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <div class="bg-animated" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -30,11 +40,12 @@
             </button>
         </div>
     </nav>
+    <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
     <!-- Main Content -->
     <main>
         <div class="page-header">
-            <div class="container">
+            <div class="container" data-parallax="0.15">
                 <h1>Skills & Technologies</h1>
             </div>
         </div>
@@ -47,19 +58,19 @@
                         <h2>Frontend Development</h2>
                         <div class="skills-list">
                             <div class="skill-item">
-                                <span class="skill-name">React / Vite</span>
+                                <span class="skill-name"><i class="fa-brands fa-react skill-icon"></i>React / Vite</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
                             </div>
                             <div class="skill-item">
-                                <span class="skill-name">JavaScript / TypeScript</span>
+                                <span class="skill-name"><i class="fa-brands fa-js skill-icon"></i>JavaScript / TypeScript</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
                             </div>
                             <div class="skill-item">
-                                <span class="skill-name">HTML5 / CSS3</span>
+                                <span class="skill-name"><i class="fa-brands fa-html5 skill-icon"></i>HTML5 / CSS3</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
                             </div>
                             <div class="skill-item">
-                                <span class="skill-name">Tailwind CSS / Bootstrap</span>
+                                <span class="skill-name"><i class="fa-brands fa-css3-alt skill-icon"></i>Tailwind CSS / Bootstrap</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
                             </div>
                         </div>
@@ -69,15 +80,15 @@
                         <h2>Backend Development</h2>
                         <div class="skills-list">
                             <div class="skill-item">
-                                <span class="skill-name">Python / Flask</span>
+                                <span class="skill-name"><i class="fa-brands fa-python skill-icon"></i>Python / Flask</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
                             </div>
                             <div class="skill-item">
-                                <span class="skill-name">Node.js / Express</span>
+                                <span class="skill-name"><i class="fa-brands fa-node-js skill-icon"></i>Node.js / Express</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
                             </div>
                             <div class="skill-item">
-                                <span class="skill-name">RESTful APIs</span>
+                                <span class="skill-name"><i class="fa-solid fa-code-branch skill-icon"></i>RESTful APIs</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
                             </div>
                         </div>
@@ -87,15 +98,15 @@
                         <h2>Database & Cloud</h2>
                         <div class="skills-list">
                             <div class="skill-item">
-                                <span class="skill-name">Firebase / Firestore</span>
+                                <span class="skill-name"><i class="fa-solid fa-fire-flame-curved skill-icon"></i>Firebase / Firestore</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
                             </div>
                             <div class="skill-item">
-                                <span class="skill-name">Oracle SQL / PostgreSQL</span>
+                                <span class="skill-name"><i class="fa-solid fa-database skill-icon"></i>Oracle SQL / PostgreSQL</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
                             </div>
                             <div class="skill-item">
-                                <span class="skill-name">AWS Services</span>
+                                <span class="skill-name"><i class="fa-brands fa-aws skill-icon"></i>AWS Services</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
                             </div>
                         </div>
@@ -105,15 +116,15 @@
                         <h2>AI & Machine Learning</h2>
                         <div class="skills-list">
                             <div class="skill-item">
-                                <span class="skill-name">TensorFlow / PyTorch</span>
+                                <span class="skill-name"><i class="fa-solid fa-brain skill-icon"></i>TensorFlow / PyTorch</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
                             </div>
                             <div class="skill-item">
-                                <span class="skill-name">Computer Vision (OpenCV)</span>
+                                <span class="skill-name"><i class="fa-solid fa-eye skill-icon"></i>Computer Vision (OpenCV)</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
                             </div>
                             <div class="skill-item">
-                                <span class="skill-name">Natural Language Processing</span>
+                                <span class="skill-name"><i class="fa-solid fa-language skill-icon"></i>Natural Language Processing</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
                             </div>
                         </div>
@@ -123,15 +134,15 @@
                         <h2>Data Analytics</h2>
                         <div class="skills-list">
                             <div class="skill-item">
-                                <span class="skill-name">Python (Pandas, NumPy)</span>
+                                <span class="skill-name"><i class="fa-solid fa-chart-line skill-icon"></i>Python (Pandas, NumPy)</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
                             </div>
                             <div class="skill-item">
-                                <span class="skill-name">Power BI</span>
+                                <span class="skill-name"><i class="fa-solid fa-chart-pie skill-icon"></i>Power BI</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
                             </div>
                             <div class="skill-item">
-                                <span class="skill-name">Google Sheets / Excel</span>
+                                <span class="skill-name"><i class="fa-solid fa-table skill-icon"></i>Google Sheets / Excel</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
                             </div>
                         </div>
@@ -141,15 +152,15 @@
                         <h2>Other Tools</h2>
                         <div class="skills-list">
                             <div class="skill-item">
-                                <span class="skill-name">Git / GitHub</span>
+                                <span class="skill-name"><i class="fa-brands fa-git-alt skill-icon"></i>Git / GitHub</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
                             </div>
                             <div class="skill-item">
-                                <span class="skill-name">Docker</span>
+                                <span class="skill-name"><i class="fa-brands fa-docker skill-icon"></i>Docker</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
                             </div>
                             <div class="skill-item">
-                                <span class="skill-name">Linux / Command Line</span>
+                                <span class="skill-name"><i class="fa-brands fa-linux skill-icon"></i>Linux / Command Line</span>
                                 <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
                             </div>
                         </div>
