@@ -41,7 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typingText) {
         const texts = [
             'AI & Analytics Student',
+            'Founder & CEO of AkitaVault',
             'Product Builder',
+            'Competitive Programmer',
+            'Robotics Enthusiast',
             'Aspiring Entrepreneur',
             'Full-Stack Developer'
         ];
