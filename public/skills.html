@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/skills.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
@@ -21,6 +22,10 @@
         <span></span>
         <span></span>
     </div>
+
+    <!-- 3D Background Canvas -->
+    <canvas id="skills3dBg" aria-hidden="true"></canvas>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -44,127 +49,632 @@
 
     <!-- Main Content -->
     <main>
-        <div class="page-header">
-            <div class="container" data-parallax="0.15">
-                <h1>Skills & Technologies</h1>
+        <!-- Hero Header with 3D Text -->
+        <div class="skills-hero">
+            <div class="skills-hero-content">
+                <div class="skills-hero-badge">
+                    <span class="badge-pulse"></span>
+                    <span class="badge-text"><i class="fa-solid fa-brain"></i> AI & ML Specialist</span>
+                </div>
+                <h1 class="skills-hero-title">
+                    <span class="title-line">AI / ML &</span>
+                    <span class="title-line title-gradient">Full-Stack Skills</span>
+                </h1>
+                <p class="skills-hero-subtitle">Specializing in Artificial Intelligence & Machine Learning — building intelligent systems from model to deployment</p>
+                
+                <!-- Skill Stats Counter -->
+                <div class="skill-stats">
+                    <div class="stat-item" data-count="20">
+                        <span class="stat-number">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">Technologies</span>
+                    </div>
+                    <div class="stat-item" data-count="6">
+                        <span class="stat-number">0</span><span class="stat-suffix"></span>
+                        <span class="stat-label">Domains</span>
+                    </div>
+                    <div class="stat-item" data-count="3">
+                        <span class="stat-number">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">Years Learning</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Floating 3D Shapes -->
+            <div class="floating-shapes" aria-hidden="true">
+                <div class="shape shape-cube"><div class="cube"><div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div></div>
+                <div class="shape shape-octahedron"><div class="octahedron"></div></div>
+                <div class="shape shape-ring"></div>
+                <div class="shape shape-sphere"></div>
+                <div class="shape shape-pyramid"><div class="pyramid"><div class="pface pf1"></div><div class="pface pf2"></div><div class="pface pf3"></div><div class="pface pf4"></div></div></div>
             </div>
         </div>
 
-        <section class="skills-section">
+        <!-- Category Filter Tabs -->
+        <section class="skills-filter-section">
             <div class="container">
-                <div class="skills-grid">
-                    
-                    <div class="skill-category">
-                        <h2>Frontend Development</h2>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-brands fa-react skill-icon"></i>React / Vite</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                <div class="filter-tabs" role="tablist">
+                    <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
+                        <i class="fa-solid fa-border-all"></i> All Skills
+                    </button>
+                    <button class="filter-tab filter-tab-featured" data-filter="ai" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-brain"></i> AI / ML <span class="tab-badge">Specialty</span>
+                    </button>
+                    <button class="filter-tab" data-filter="frontend" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-palette"></i> Frontend
+                    </button>
+                    <button class="filter-tab" data-filter="backend" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-server"></i> Backend
+                    </button>
+                    <button class="filter-tab" data-filter="cloud" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-cloud"></i> Cloud & DB
+                    </button>
+                    <button class="filter-tab" data-filter="data" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-chart-line"></i> Analytics
+                    </button>
+                    <button class="filter-tab" data-filter="tools" role="tab" aria-selected="false">
+                        <i class="fa-solid fa-wrench"></i> DevOps
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3D Skill Cards Grid -->
+        <section class="skills-showcase">
+            <div class="container">
+                <div class="skills-3d-grid">
+
+                    <!-- AI & ML (Specialty — shown first) -->
+                    <div class="skill-card-3d skill-card-featured" data-category="ai" data-tilt>
+                        <div class="card-featured-badge"><i class="fa-solid fa-star"></i> Core Specialty</div>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere icon-sphere-featured"><i class="fa-solid fa-brain"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
                             </div>
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-brands fa-js skill-icon"></i>JavaScript / TypeScript</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                            <h3>TensorFlow / PyTorch</h3>
+                            <p class="card-desc">Deep learning models, neural networks, and end-to-end model training pipelines</p>
+                            <div class="radial-progress" data-value="85">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">85%</span>
                             </div>
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-brands fa-html5 skill-icon"></i>HTML5 / CSS3</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-brands fa-css3-alt skill-icon"></i>Tailwind CSS / Bootstrap</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
-                            </div>
+                            <div class="card-tags"><span>CNN</span><span>RNN</span><span>GANs</span><span>Transfer Learning</span></div>
                         </div>
                     </div>
 
-                    <div class="skill-category">
-                        <h2>Backend Development</h2>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-brands fa-python skill-icon"></i>Python / Flask</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                    <div class="skill-card-3d skill-card-featured" data-category="ai" data-tilt>
+                        <div class="card-featured-badge"><i class="fa-solid fa-star"></i> Core Specialty</div>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere icon-sphere-featured"><i class="fa-solid fa-eye"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
                             </div>
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-brands fa-node-js skill-icon"></i>Node.js / Express</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                            <h3>Computer Vision</h3>
+                            <p class="card-desc">Image processing, object detection, segmentation, and real-time visual recognition</p>
+                            <div class="radial-progress" data-value="85">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">85%</span>
                             </div>
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-solid fa-code-branch skill-icon"></i>RESTful APIs</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
-                            </div>
+                            <div class="card-tags"><span>OpenCV</span><span>YOLO</span><span>MediaPipe</span><span>Detection</span></div>
                         </div>
                     </div>
 
-                    <div class="skill-category">
-                        <h2>Database & Cloud</h2>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-solid fa-fire-flame-curved skill-icon"></i>Firebase / Firestore</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                    <div class="skill-card-3d skill-card-featured" data-category="ai" data-tilt>
+                        <div class="card-featured-badge"><i class="fa-solid fa-star"></i> Core Specialty</div>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere icon-sphere-featured"><i class="fa-solid fa-language"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
                             </div>
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-solid fa-database skill-icon"></i>Oracle SQL / PostgreSQL</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                            <h3>Natural Language Processing</h3>
+                            <p class="card-desc">Text analysis, sentiment detection, transformers, and large language model integration</p>
+                            <div class="radial-progress" data-value="80">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">80%</span>
                             </div>
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-brands fa-aws skill-icon"></i>AWS Services</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
-                            </div>
+                            <div class="card-tags"><span>NLTK</span><span>Transformers</span><span>LLMs</span><span>RAG</span></div>
                         </div>
                     </div>
 
-                    <div class="skill-category">
-                        <h2>AI & Machine Learning</h2>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-solid fa-brain skill-icon"></i>TensorFlow / PyTorch</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                    <div class="skill-card-3d skill-card-featured" data-category="ai" data-tilt>
+                        <div class="card-featured-badge"><i class="fa-solid fa-star"></i> Core Specialty</div>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere icon-sphere-featured"><i class="fa-solid fa-robot"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
                             </div>
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-solid fa-eye skill-icon"></i>Computer Vision (OpenCV)</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                            <h3>Scikit-Learn / ML Ops</h3>
+                            <p class="card-desc">Classical ML algorithms, feature engineering, model deployment, and pipeline automation</p>
+                            <div class="radial-progress" data-value="80">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">80%</span>
                             </div>
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-solid fa-language skill-icon"></i>Natural Language Processing</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
-                            </div>
+                            <div class="card-tags"><span>Sklearn</span><span>XGBoost</span><span>Pipelines</span><span>MLflow</span></div>
                         </div>
                     </div>
 
-                    <div class="skill-category">
-                        <h2>Data Analytics</h2>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-solid fa-chart-line skill-icon"></i>Python (Pandas, NumPy)</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                    <div class="skill-card-3d skill-card-featured" data-category="ai" data-tilt>
+                        <div class="card-featured-badge"><i class="fa-solid fa-star"></i> Core Specialty</div>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere icon-sphere-featured"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
                             </div>
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-solid fa-chart-pie skill-icon"></i>Power BI</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                            <h3>Generative AI / LLMs</h3>
+                            <p class="card-desc">Prompt engineering, fine-tuning, RAG systems, and AI-powered application development</p>
+                            <div class="radial-progress" data-value="80">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">80%</span>
                             </div>
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-solid fa-table skill-icon"></i>Google Sheets / Excel</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
-                            </div>
+                            <div class="card-tags"><span>GPT</span><span>LangChain</span><span>Fine-Tuning</span><span>Agents</span></div>
                         </div>
                     </div>
 
-                    <div class="skill-category">
-                        <h2>Other Tools</h2>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-brands fa-git-alt skill-icon"></i>Git / GitHub</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                    <!-- Frontend -->
+                    <div class="skill-card-3d" data-category="frontend" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere"><i class="fa-brands fa-react"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
                             </div>
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-brands fa-docker skill-icon"></i>Docker</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+                            <h3>React / Vite</h3>
+                            <p class="card-desc">Building blazing-fast SPAs with modern component architecture</p>
+                            <div class="radial-progress" data-value="85">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">85%</span>
                             </div>
-                            <div class="skill-item">
-                                <span class="skill-name"><i class="fa-brands fa-linux skill-icon"></i>Linux / Command Line</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
-                            </div>
+                            <div class="card-tags"><span>SPA</span><span>Hooks</span><span>JSX</span></div>
                         </div>
                     </div>
+
+                    <div class="skill-card-3d" data-category="frontend" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere"><i class="fa-brands fa-js"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
+                            </div>
+                            <h3>JavaScript / TypeScript</h3>
+                            <p class="card-desc">Type-safe, modern ES6+ development for robust applications</p>
+                            <div class="radial-progress" data-value="80">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">80%</span>
+                            </div>
+                            <div class="card-tags"><span>ES6+</span><span>TypeScript</span><span>Async</span></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-3d" data-category="frontend" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere"><i class="fa-brands fa-html5"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
+                            </div>
+                            <h3>HTML5 / CSS3</h3>
+                            <p class="card-desc">Semantic markup with modern layout techniques and animations</p>
+                            <div class="radial-progress" data-value="90">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">90%</span>
+                            </div>
+                            <div class="card-tags"><span>Grid</span><span>Flexbox</span><span>A11y</span></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-3d" data-category="frontend" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere"><i class="fa-brands fa-css3-alt"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
+                            </div>
+                            <h3>Tailwind / Bootstrap</h3>
+                            <p class="card-desc">Rapid UI development with utility-first and component frameworks</p>
+                            <div class="radial-progress" data-value="85">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">85%</span>
+                            </div>
+                            <div class="card-tags"><span>Utility-First</span><span>Responsive</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Backend -->
+                    <div class="skill-card-3d" data-category="backend" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere"><i class="fa-brands fa-python"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
+                            </div>
+                            <h3>Python / Flask</h3>
+                            <p class="card-desc">Server-side logic, REST APIs, and automation scripting</p>
+                            <div class="radial-progress" data-value="85">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">85%</span>
+                            </div>
+                            <div class="card-tags"><span>Flask</span><span>Django</span><span>FastAPI</span></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-3d" data-category="backend" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere"><i class="fa-brands fa-node-js"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
+                            </div>
+                            <h3>Node.js / Express</h3>
+                            <p class="card-desc">Event-driven server architecture and middleware pipelines</p>
+                            <div class="radial-progress" data-value="75">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">75%</span>
+                            </div>
+                            <div class="card-tags"><span>Express</span><span>NPM</span><span>REST</span></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-3d" data-category="backend" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere"><i class="fa-solid fa-code-branch"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
+                            </div>
+                            <h3>RESTful APIs</h3>
+                            <p class="card-desc">Designing clean, scalable API architectures and documentation</p>
+                            <div class="radial-progress" data-value="80">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">80%</span>
+                            </div>
+                            <div class="card-tags"><span>OpenAPI</span><span>JSON</span><span>Auth</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Cloud & DB -->
+                    <div class="skill-card-3d" data-category="cloud" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
+                            </div>
+                            <h3>Firebase / Firestore</h3>
+                            <p class="card-desc">Real-time databases, auth, and serverless cloud functions</p>
+                            <div class="radial-progress" data-value="80">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">80%</span>
+                            </div>
+                            <div class="card-tags"><span>Realtime</span><span>Auth</span><span>Hosting</span></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-3d" data-category="cloud" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere"><i class="fa-solid fa-database"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
+                            </div>
+                            <h3>Oracle SQL / PostgreSQL</h3>
+                            <p class="card-desc">Complex queries, optimization, and relational data modeling</p>
+                            <div class="radial-progress" data-value="75">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">75%</span>
+                            </div>
+                            <div class="card-tags"><span>SQL</span><span>Indexing</span><span>ORM</span></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-3d" data-category="cloud" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere"><i class="fa-brands fa-aws"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
+                            </div>
+                            <h3>AWS Services</h3>
+                            <p class="card-desc">Cloud infrastructure, S3, Lambda, and deployment pipelines</p>
+                            <div class="radial-progress" data-value="70">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">70%</span>
+                            </div>
+                            <div class="card-tags"><span>S3</span><span>Lambda</span><span>EC2</span></div>
+                        </div>
+                    </div>
+
+                    <!-- (AI/ML cards moved to top of grid as featured) -->
+
+                    <!-- Data Analytics -->
+                    <div class="skill-card-3d" data-category="data" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere"><i class="fa-solid fa-chart-line"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
+                            </div>
+                            <h3>Pandas / NumPy</h3>
+                            <p class="card-desc">Data wrangling, statistical analysis, and visualization</p>
+                            <div class="radial-progress" data-value="85">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">85%</span>
+                            </div>
+                            <div class="card-tags"><span>DataFrames</span><span>Matplotlib</span></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-3d" data-category="data" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere"><i class="fa-solid fa-chart-pie"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
+                            </div>
+                            <h3>Power BI</h3>
+                            <p class="card-desc">Interactive dashboards and business intelligence reporting</p>
+                            <div class="radial-progress" data-value="75">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">75%</span>
+                            </div>
+                            <div class="card-tags"><span>DAX</span><span>Dashboards</span><span>ETL</span></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-3d" data-category="data" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere"><i class="fa-solid fa-table"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
+                            </div>
+                            <h3>Sheets / Excel</h3>
+                            <p class="card-desc">Advanced formulas, macros, and data automation workflows</p>
+                            <div class="radial-progress" data-value="80">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">80%</span>
+                            </div>
+                            <div class="card-tags"><span>VBA</span><span>Pivot</span><span>Macros</span></div>
+                        </div>
+                    </div>
+
+                    <!-- DevOps & Tools -->
+                    <div class="skill-card-3d" data-category="tools" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere"><i class="fa-brands fa-git-alt"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
+                            </div>
+                            <h3>Git / GitHub</h3>
+                            <p class="card-desc">Version control, branching strategies, and CI/CD workflows</p>
+                            <div class="radial-progress" data-value="85">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">85%</span>
+                            </div>
+                            <div class="card-tags"><span>CI/CD</span><span>Actions</span><span>PRs</span></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-3d" data-category="tools" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere"><i class="fa-brands fa-docker"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
+                            </div>
+                            <h3>Docker</h3>
+                            <p class="card-desc">Containerization, image building, and orchestration</p>
+                            <div class="radial-progress" data-value="70">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">70%</span>
+                            </div>
+                            <div class="card-tags"><span>Compose</span><span>Images</span><span>K8s</span></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card-3d" data-category="tools" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="card-icon-wrap">
+                                <div class="icon-sphere"><i class="fa-brands fa-linux"></i></div>
+                                <svg class="orbit-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45"/></svg>
+                            </div>
+                            <h3>Linux / CLI</h3>
+                            <p class="card-desc">Shell scripting, system administration, and automation</p>
+                            <div class="radial-progress" data-value="75">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="track" cx="60" cy="60" r="52"/>
+                                    <circle class="fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+                                </svg>
+                                <span class="radial-value">75%</span>
+                            </div>
+                            <div class="card-tags"><span>Bash</span><span>SSH</span><span>Cron</span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Radar Chart Section -->
+        <section class="skills-radar-section">
+            <div class="container">
+                <div class="radar-header">
+                    <h2 class="section-title-3d">Skill <span class="title-gradient">Constellation</span></h2>
+                    <p class="section-subtitle">An interactive visualization of expertise across domains</p>
+                </div>
+                <div class="radar-wrapper">
+                    <canvas id="skillRadarCanvas" width="500" height="500"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="certifications-section">
+            <div class="container">
+                <div class="cert-header">
+                    <h2 class="section-title-3d"><i class="fa-solid fa-certificate"></i> Certifications & <span class="title-gradient">Credentials</span></h2>
+                    <p class="section-subtitle">Industry-recognized certifications validating AI/ML and technical expertise</p>
+                </div>
+                <div class="cert-grid">
+
+                    <div class="cert-card" data-tilt>
+                        <div class="cert-icon"><i class="fa-solid fa-brain"></i></div>
+                        <div class="cert-body">
+                            <h3>AI Fundamentals</h3>
+                            <p class="cert-issuer"><i class="fa-brands fa-linkedin"></i> LinkedIn Learning</p>
+                            <span class="cert-badge">AI / ML</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card" data-tilt>
+                        <div class="cert-icon"><i class="fa-solid fa-robot"></i></div>
+                        <div class="cert-body">
+                            <h3>Machine Learning with Python</h3>
+                            <p class="cert-issuer"><i class="fa-brands fa-linkedin"></i> LinkedIn Learning</p>
+                            <span class="cert-badge">AI / ML</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card" data-tilt>
+                        <div class="cert-icon"><i class="fa-solid fa-eye"></i></div>
+                        <div class="cert-body">
+                            <h3>Deep Learning: Computer Vision</h3>
+                            <p class="cert-issuer"><i class="fa-brands fa-linkedin"></i> LinkedIn Learning</p>
+                            <span class="cert-badge">AI / ML</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card" data-tilt>
+                        <div class="cert-icon"><i class="fa-solid fa-language"></i></div>
+                        <div class="cert-body">
+                            <h3>NLP with Python</h3>
+                            <p class="cert-issuer"><i class="fa-brands fa-linkedin"></i> LinkedIn Learning</p>
+                            <span class="cert-badge">AI / ML</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card" data-tilt>
+                        <div class="cert-icon"><i class="fa-brands fa-python"></i></div>
+                        <div class="cert-body">
+                            <h3>Python for Data Science</h3>
+                            <p class="cert-issuer"><i class="fa-brands fa-linkedin"></i> LinkedIn Learning</p>
+                            <span class="cert-badge">Data</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card" data-tilt>
+                        <div class="cert-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <div class="cert-body">
+                            <h3>Data Analytics Foundations</h3>
+                            <p class="cert-issuer"><i class="fa-brands fa-linkedin"></i> LinkedIn Learning</p>
+                            <span class="cert-badge">Analytics</span>
+                        </div>
+                    </div>
+
+                </div>
+                <p class="cert-note"><i class="fa-solid fa-circle-info"></i> View all certifications on <a href="https://www.linkedin.com/in/neil-aryan-kota-9ab932304/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+            </div>
+        </section>
+
+        <!-- Tech Stack Marquee -->
+        <section class="tech-marquee-section">
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <span class="marquee-item"><i class="fa-brands fa-react"></i> React</span>
+                    <span class="marquee-item"><i class="fa-brands fa-python"></i> Python</span>
+                    <span class="marquee-item"><i class="fa-brands fa-js"></i> JavaScript</span>
+                    <span class="marquee-item"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                    <span class="marquee-item"><i class="fa-brands fa-aws"></i> AWS</span>
+                    <span class="marquee-item"><i class="fa-brands fa-docker"></i> Docker</span>
+                    <span class="marquee-item"><i class="fa-solid fa-brain"></i> TensorFlow</span>
+                    <span class="marquee-item"><i class="fa-brands fa-git-alt"></i> Git</span>
+                    <span class="marquee-item"><i class="fa-solid fa-database"></i> PostgreSQL</span>
+                    <span class="marquee-item"><i class="fa-solid fa-fire-flame-curved"></i> Firebase</span>
+                    <span class="marquee-item"><i class="fa-brands fa-html5"></i> HTML5</span>
+                    <span class="marquee-item"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                    <span class="marquee-item"><i class="fa-brands fa-linux"></i> Linux</span>
+                    <span class="marquee-item"><i class="fa-solid fa-chart-line"></i> Pandas</span>
+                    <span class="marquee-item"><i class="fa-solid fa-eye"></i> OpenCV</span>
+                    <!-- Duplicate for seamless loop -->
+                    <span class="marquee-item"><i class="fa-brands fa-react"></i> React</span>
+                    <span class="marquee-item"><i class="fa-brands fa-python"></i> Python</span>
+                    <span class="marquee-item"><i class="fa-brands fa-js"></i> JavaScript</span>
+                    <span class="marquee-item"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                    <span class="marquee-item"><i class="fa-brands fa-aws"></i> AWS</span>
+                    <span class="marquee-item"><i class="fa-brands fa-docker"></i> Docker</span>
+                    <span class="marquee-item"><i class="fa-solid fa-brain"></i> TensorFlow</span>
+                    <span class="marquee-item"><i class="fa-brands fa-git-alt"></i> Git</span>
+                    <span class="marquee-item"><i class="fa-solid fa-database"></i> PostgreSQL</span>
+                    <span class="marquee-item"><i class="fa-solid fa-fire-flame-curved"></i> Firebase</span>
+                    <span class="marquee-item"><i class="fa-brands fa-html5"></i> HTML5</span>
+                    <span class="marquee-item"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                    <span class="marquee-item"><i class="fa-brands fa-linux"></i> Linux</span>
+                    <span class="marquee-item"><i class="fa-solid fa-chart-line"></i> Pandas</span>
+                    <span class="marquee-item"><i class="fa-solid fa-eye"></i> OpenCV</span>
                 </div>
             </div>
         </section>
@@ -213,5 +723,8 @@
     </footer>
 
     <script src="/js/main.js"></script>
+    <script src="/js/skills-3d.js"></script>
+    <script src="/js/ai-chat.js"></script>
+    <script src="/js/shortcuts.js"></script>
 </body>
 </html>

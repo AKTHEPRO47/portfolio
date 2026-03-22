@@ -1,17 +1,5 @@
 // Main JavaScript for global functionality
 document.addEventListener('DOMContentLoaded', () => {
-    // Loading Screen
-    const loadingScreen = document.getElementById('loadingScreen');
-    if (loadingScreen) {
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                loadingScreen.style.opacity = '0';
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                }, 500);
-            }, 800);
-        });
-    }
 
     // Dark/Light Mode Toggle
     const themeToggle = document.getElementById('themeToggle');

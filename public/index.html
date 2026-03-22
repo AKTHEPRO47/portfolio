@@ -9,9 +9,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        /* Inline so the loader renders instantly before any external CSS/JS loads */
+        .loading-screen{position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease}
+        .loading-screen.hide{opacity:0;pointer-events:none}
+        .loader{position:relative;width:120px;height:120px;display:flex;align-items:center;justify-content:center}
+        .loader-ring{position:absolute;border:3px solid transparent;border-radius:50%;animation:ldSpin 1.5s cubic-bezier(.68,-.55,.265,1.55) infinite}
+        .loader-ring:nth-child(1){width:80px;height:80px;border-top-color:#ff0000}
+        .loader-ring:nth-child(2){width:100px;height:100px;border-top-color:#dc143c;animation-delay:-.3s}
+        .loader-ring:nth-child(3){width:120px;height:120px;border-top-color:#ff4444;animation-delay:-.6s}
+        .loader-text{font-family:Montserrat,sans-serif;font-size:.85rem;font-weight:600;color:#ff0000;letter-spacing:2px}
+        @keyframes ldSpin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    </style>
 </head>
 <body>
-    <!-- Loading Screen -->
+    <!-- Loading Screen (inline style + inline script = guaranteed to work) -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loader">
             <div class="loader-ring"></div>
@@ -20,6 +32,23 @@
             <span class="loader-text">Loading...</span>
         </div>
     </div>
+    <script>
+        // Hide loader as soon as page fully loads. Inline so it never misses the event.
+        (function(){
+            function hide(){
+                var el=document.getElementById('loadingScreen');
+                if(!el)return;
+                setTimeout(function(){
+                    el.classList.add('hide');
+                    setTimeout(function(){el.remove();},500);
+                },600);
+            }
+            if(document.readyState==='complete'){hide();}
+            else{window.addEventListener('load',hide);}
+            // Safety net: force-hide after 4 seconds no matter what
+            setTimeout(hide,4000);
+        })();
+    </script>
     <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
     <div class="bg-animated" aria-hidden="true">
         <span></span>
