@@ -330,5 +330,53 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.getElementById('easterEggOverlay');
     if (overlay) {
         overlay.addEventListener('click', closeEasterEgg);
+
+    // ── Floating Theme Toggle ─────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+        const floatBtn = document.getElementById('themeFloatBtn');
+        if (floatBtn) {
+            floatBtn.addEventListener('click', () => {
+                document.body.classList.toggle('light-mode');
+                const theme = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+                localStorage.setItem('theme', theme);
+                // Sync the navbar icon toggle state
+                const themeToggle = document.getElementById('themeToggle');
+                if (themeToggle) {
+                    themeToggle.style.transform = 'rotate(360deg)';
+                    setTimeout(() => { themeToggle.style.transform = ''; }, 500);
+                }
+            });
+        }
+    });
+
+    // ── Stats Counter Animation ───────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+        const statEls = document.querySelectorAll('.stat-number');
+        if (!statEls.length) return;
+
+        const animateCount = (el) => {
+            const target = parseInt(el.dataset.target, 10);
+            const duration = 1500;
+            const start = performance.now();
+            const update = (now) => {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(eased * target);
+                if (progress < 1) requestAnimationFrame(update);
+            };
+            requestAnimationFrame(update);
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCount(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statEls.forEach(el => observer.observe(el));
+    });
     }
 });
