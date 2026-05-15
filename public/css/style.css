@@ -406,8 +406,21 @@ body.light-mode .theme-toggle .moon-icon {
 
 /* Intro Section */
 .intro-section {
-    padding: 4rem 0;
+    padding: 3.5rem 0 1.5rem;
     text-align: center;
+}
+
+.intro-section .container {
+    max-width: 900px;
+    background: linear-gradient(180deg, rgba(255, 0, 0, 0.08), rgba(255, 0, 0, 0.02));
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .intro-section .container {
+    background: linear-gradient(180deg, rgba(220, 20, 60, 0.08), rgba(220, 20, 60, 0.02));
 }
 
 .intro-section h2 {
@@ -1831,125 +1844,146 @@ body.light-mode .bg-animated span {
     }
     50% {
         transform: translate3d(30px, -40px, 0) scale(1.1);
+    }
+}
 
-    /* =============================================
-       Floating Theme Toggle Button
-       ============================================= */
-    .theme-float-btn {
-        position: fixed;
-        bottom: 2rem;
-        left: 2rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.6rem 1.1rem;
-        background: var(--surface);
-        border: 1.5px solid var(--border);
-        border-radius: 2rem;
-        color: var(--text);
-        font-family: 'Montserrat', sans-serif;
-        font-size: 0.85rem;
-        font-weight: 600;
-        cursor: pointer;
-        z-index: 999;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-        transition: all 0.3s ease;
-        backdrop-filter: blur(8px);
-    }
-    .theme-float-btn:hover {
-        border-color: var(--primary);
-        box-shadow: 0 6px 24px rgba(255,0,0,0.25);
-        transform: translateY(-2px);
-    }
-    .theme-float-btn .float-sun { display: none; }
-    .theme-float-btn .float-moon { display: block; }
-    .theme-float-btn .theme-float-label::before { content: 'Light'; }
-    body.light-mode .theme-float-btn .float-sun { display: block; }
-    body.light-mode .theme-float-btn .float-moon { display: none; }
-    body.light-mode .theme-float-btn .theme-float-label::before { content: 'Dark'; }
-    body.light-mode .theme-float-btn {
-        background: rgba(255,255,255,0.9);
-        border-color: #ddd;
-    }
+/* =============================================
+   Floating Theme Toggle Button
+   ============================================= */
+.theme-float-btn {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.1rem;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 2rem;
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+}
 
-    /* =============================================
-       Section Header
-       ============================================= */
-    .section-header {
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-    .section-header h2 {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 0.75rem;
-        background: var(--gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-    .section-header p {
-        color: var(--text-muted);
-        font-size: 1.1rem;
-    }
-    .section-cta {
-        text-align: center;
-        margin-top: 2.5rem;
-    }
+.theme-float-btn:hover {
+    border-color: var(--primary);
+    box-shadow: 0 6px 24px rgba(255, 0, 0, 0.25);
+    transform: translateY(-2px);
+}
 
-    /* =============================================
-       Stats Section
-       ============================================= */
-    .stats-section {
-        padding: 3rem 0;
-        background: var(--surface);
-        border-top: 1px solid var(--border);
-        border-bottom: 1px solid var(--border);
-    }
-    .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2rem;
-        text-align: center;
-    }
-    @media (max-width: 768px) {
-        .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    .stat-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
-    .stat-number-wrap {
-        display: flex;
-        align-items: baseline;
-        gap: 2px;
-    }
-    .stat-number {
-        font-size: 3rem;
-        font-weight: 900;
-        background: var(--gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        line-height: 1;
-    }
-    .stat-suffix {
-        font-size: 2rem;
-        font-weight: 800;
-        background: var(--gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-    .stat-label {
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--text-muted);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
+.theme-float-btn .float-sun { display: none; }
+.theme-float-btn .float-moon { display: block; }
+.theme-float-btn .theme-float-label::before { content: 'Light'; }
+body.light-mode .theme-float-btn .float-sun { display: block; }
+body.light-mode .theme-float-btn .float-moon { display: none; }
+body.light-mode .theme-float-btn .theme-float-label::before { content: 'Dark'; }
+body.light-mode .theme-float-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: #ddd;
+}
+
+/* =============================================
+   Section Header
+   ============================================= */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.section-cta {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+/* =============================================
+   Stats Section
+   ============================================= */
+.stats-section {
+    padding: 1.5rem 0 4.5rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.4rem 0.85rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: 0 12px 28px rgba(255, 0, 0, 0.14);
+}
+.stat-number-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.stat-suffix {
+    font-size: 1.7rem;
+    font-weight: 800;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-label {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
     /* =============================================
        What I Do Section
@@ -2207,11 +2241,9 @@ body.light-mode .bg-animated span {
         display: block;
         margin: 0 auto;
     }
-    body.light-mode .github-stat-card,
-    body.light-mode .github-streak {
-        background: #1a1a1a;
-    }
-    }
+body.light-mode .github-stat-card,
+body.light-mode .github-streak {
+    background: #1a1a1a;
 }
 
 main,
