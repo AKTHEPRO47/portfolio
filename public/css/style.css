@@ -1836,11 +1836,7 @@ body.light-mode .bg-animated span {
 
 main,
 .navbar,
-.footer,
-.scroll-to-top,
-.ai-chat-container,
-.ai-chat-toggle,
-.shortcuts-panel {
+.footer {
     position: relative;
     z-index: 1;
 }
