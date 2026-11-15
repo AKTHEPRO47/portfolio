@@ -30,9 +30,11 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="trading.html">Trading</a></li>
                 <li><a href="skills.html">Skills</a></li>
                 <li><a href="experience.html">Experience</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="book.html">Book me</a></li>
             </ul>
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
                 <span></span>
@@ -54,8 +56,14 @@
 
         <section class="projects-section">
             <div class="container">
-                <div class="projects-grid">
-                    <article class="project-card" data-project="tricard">
+                <div class="project-tools" id="projectTools" hidden>
+                    <label for="projectSearch">Find a project</label>
+                    <input id="projectSearch" type="search" placeholder="Search by name or technology" aria-controls="projectsGrid">
+                    <p id="projectResults" role="status"></p>
+                    <p id="projectShareStatus" class="project-share-status" role="status"></p>
+                </div>
+                <div class="projects-grid" id="projectsGrid">
+                    <article class="project-card" id="tricard" data-project="tricard">
                         <div class="project-header">
                             <div class="project-icon" aria-hidden="true">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 15l4-4 4 2 6-7"/></svg>
@@ -87,7 +95,7 @@
                         </div>
                     </article>
 
-                    <article class="project-card" data-project="ferris">
+                    <article class="project-card" id="ferris" data-project="ferris">
                         <div class="project-header">
                             <div class="project-icon" aria-hidden="true">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>
@@ -120,7 +128,7 @@
                     </article>
 
                     <!-- AkitaVault -->
-                    <div class="project-card" data-project="akitavault">
+                    <div class="project-card" id="akitavault" data-project="akitavault">
                         <div class="project-header">
                             <div class="project-icon">
                                 <img src="images/akitavault-logo.png" alt="AkitaVault Logo" class="project-logo">
@@ -164,11 +172,17 @@
 
                             <h3>Impact</h3>
                             <p>Designed to create safer online learning environments for students, helping schools and parents protect young users while maintaining transparency and educational value. The platform aims to reduce exposure to inappropriate content while teaching responsible digital citizenship.</p>
+                            <h3>Sources</h3>
+                            <div class="project-actions">
+                                <a class="btn btn-primary" href="https://akitavault.com/">Official website</a>
+                                <a class="btn btn-secondary" href="https://github.com/AKTHEPRO47/akitavault">GitHub source (access required)</a>
+                                <a class="btn btn-secondary" href="https://www.linkedin.com/company/akitavault/">Team updates</a>
+                            </div>
                         </div>
                     </div>
 
                     <!-- BridgeGen -->
-                    <div class="project-card" data-project="bridgegen">
+                    <div class="project-card" id="bridgegen" data-project="bridgegen">
                         <div class="project-header">
                             <div class="project-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -251,7 +265,7 @@
                     </div>
 
                     <!-- Mini Cricket Game -->
-                    <div class="project-card" data-project="cricket-game">
+                    <div class="project-card" id="cricket-game" data-project="cricket-game">
                         <div class="project-header">
                             <div class="project-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
@@ -296,7 +310,7 @@
                     </div>
 
                     <!-- Findustry -->
-                    <div class="project-card" data-project="findustry">
+                    <div class="project-card" id="findustry" data-project="findustry">
                         <div class="project-header">
                             <div class="project-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -342,7 +356,7 @@
                     </div>
 
                     <!-- SGResolve -->
-                    <div class="project-card" data-project="sgresolve">
+                    <div class="project-card" id="sgresolve" data-project="sgresolve">
                         <div class="project-header">
                             <div class="project-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -417,7 +431,9 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="projects.html">Projects</a></li>
+                        <li><a href="trading.html">Trading</a></li>
                         <li><a href="contact.html">Contact</a></li>
+                        <li><a href="book.html">Book me</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">

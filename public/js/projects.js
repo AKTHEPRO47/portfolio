@@ -17,9 +17,80 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    setupProjectTools(projectCards);
+
     // Initialize carousels
     document.querySelectorAll('.carousel').forEach(setupCarousel);
 });
+
+function setupProjectTools(cards) {
+    const search = document.getElementById('projectSearch');
+    const results = document.getElementById('projectResults');
+    const shareStatus = document.getElementById('projectShareStatus');
+
+    function filterProjects() {
+        const terms = search.value.toLowerCase().trim().split(/\s+/);
+        let count = 0;
+
+        cards.forEach(card => {
+            const summary = card.querySelector('.project-info').textContent.toLowerCase();
+            card.hidden = !terms.every(term => summary.includes(term));
+            if (!card.hidden) count++;
+        });
+
+        results.textContent = count
+            ? `${count} ${count === 1 ? 'project' : 'projects'}`
+            : 'No projects match your search.';
+    }
+
+    function openLinkedProject() {
+        const card = Array.from(cards).find(project => '#' + project.id === window.location.hash);
+        if (!card) return;
+
+        if (card.hidden) {
+            search.value = '';
+            filterProjects();
+        }
+        if (!card.classList.contains('expanded')) toggleProject(card);
+    }
+
+    if (!search) return;
+
+    cards.forEach(card => {
+        const title = card.querySelector('h2').textContent;
+        const link = document.createElement('a');
+        link.className = 'project-share';
+        link.href = '#' + card.id;
+        link.textContent = 'Project link';
+        link.setAttribute('aria-label', 'Link to ' + title);
+        card.querySelector('.project-details').append(link);
+
+        if (navigator.clipboard?.writeText) {
+            link.textContent = 'Copy project link';
+            link.setAttribute('aria-label', 'Copy link to ' + title);
+            link.addEventListener('click', async event => {
+                if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+                event.preventDefault();
+
+                try {
+                    await navigator.clipboard.writeText(link.href);
+                    shareStatus.textContent = 'Link copied for ' + title + '.';
+                    link.textContent = 'Link copied';
+                } catch {
+                    window.location.hash = card.id;
+                    shareStatus.textContent = 'Copy the project link from the address bar.';
+                    link.textContent = 'Link in address bar';
+                }
+            });
+        }
+    });
+
+    search.addEventListener('input', filterProjects);
+    window.addEventListener('hashchange', openLinkedProject);
+    document.getElementById('projectTools').hidden = false;
+    filterProjects();
+    openLinkedProject();
+}
 
 function toggleProject(card) {
     const isExpanded = card.classList.contains('expanded');

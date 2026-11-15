@@ -10,45 +10,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <style>
-        /* Inline so the loader renders instantly before any external CSS/JS loads */
-        .loading-screen{position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease}
-        .loading-screen.hide{opacity:0;pointer-events:none}
-        .loader{position:relative;width:120px;height:120px;display:flex;align-items:center;justify-content:center}
-        .loader-ring{position:absolute;border:3px solid transparent;border-radius:50%;animation:ldSpin 1.5s cubic-bezier(.68,-.55,.265,1.55) infinite}
-        .loader-ring:nth-child(1){width:80px;height:80px;border-top-color:#ff0000}
-        .loader-ring:nth-child(2){width:100px;height:100px;border-top-color:#dc143c;animation-delay:-.3s}
-        .loader-ring:nth-child(3){width:120px;height:120px;border-top-color:#ff4444;animation-delay:-.6s}
-        .loader-text{font-family:Montserrat,sans-serif;font-size:.85rem;font-weight:600;color:#ff0000;letter-spacing:2px}
-        @keyframes ldSpin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
-    </style>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-    <!-- Loading Screen (inline style + inline script = guaranteed to work) -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loader">
-            <div class="loader-ring"></div>
-            <div class="loader-ring"></div>
-            <div class="loader-ring"></div>
-            <span class="loader-text">Loading...</span>
+    <div class="aryan-intro" id="aryanIntro" aria-hidden="true" hidden>
+        <div class="aryan-intro-scene">
+            <span class="aryan-intro-word">Aryan</span>
         </div>
     </div>
     <script>
-        // Hide loader as soon as page fully loads. Inline so it never misses the event.
-        (function(){
-            function hide(){
-                var el=document.getElementById('loadingScreen');
-                if(!el)return;
-                setTimeout(function(){
-                    el.classList.add('hide');
-                    setTimeout(function(){el.remove();},500);
-                },600);
+        (() => {
+            if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            const intro = document.getElementById('aryanIntro');
+            intro.hidden = false;
+            const started = performance.now();
+            let exiting = false;
+
+            function reveal() {
+                if (exiting) return;
+                exiting = true;
+                setTimeout(() => {
+                    intro.classList.add('aryan-intro-exit');
+                    setTimeout(() => intro.remove(), 650);
+                }, Math.max(0, 570 - (performance.now() - started)));
             }
-            if(document.readyState==='complete'){hide();}
-            else{window.addEventListener('load',hide);}
-            // Safety net: force-hide after 4 seconds no matter what
-            setTimeout(hide,4000);
+
+            window.addEventListener('load', reveal, { once: true });
+            setTimeout(reveal, 1300);
         })();
     </script>
     <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
@@ -72,9 +60,11 @@
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
+                <li><a href="trading.html">Trading</a></li>
                 <li><a href="skills.html">Skills</a></li>
                 <li><a href="experience.html">Experience</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="book.html">Book me</a></li>
             </ul>
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
                 <span></span>
@@ -257,7 +247,9 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="projects.html">Projects</a></li>
+                        <li><a href="trading.html">Trading</a></li>
                         <li><a href="contact.html">Contact</a></li>
+                        <li><a href="book.html">Book me</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -276,7 +268,7 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/hero-animation.js"></script>
+    <script defer src="js/hero-animation.js"></script>
     <script src="js/ai-chat.js"></script>
     <script src="js/shortcuts.js"></script>
 </body>
