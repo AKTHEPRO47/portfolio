@@ -28,17 +28,20 @@ function toggleProject(card) {
     document.querySelectorAll('.project-card.expanded').forEach(otherCard => {
         if (otherCard !== card) {
             otherCard.classList.remove('expanded');
+            otherCard.querySelector('.expand-btn').setAttribute('aria-expanded', 'false');
         }
     });
     
     // Toggle current card
+    card.querySelector('.expand-btn').setAttribute('aria-expanded', String(!isExpanded));
     if (isExpanded) {
         card.classList.remove('expanded');
     } else {
         card.classList.add('expanded');
         // Scroll to card
         setTimeout(() => {
-            card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            card.scrollIntoView({ behavior: reduceMotion ? 'instant' : 'smooth', block: 'nearest' });
         }, 100);
     }
 }

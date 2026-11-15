@@ -2541,3 +2541,46 @@ body.menu-open {
     color: var(--text-muted);
     font-size: 0.85rem;
 }
+
+/* Projects page refinements */
+.project-info {
+    min-width: 0;
+}
+
+.project-info .project-subtitle {
+    margin-top: -0.35rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.expand-btn:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+    .project-header {
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+
+    .project-info h2 {
+        font-size: 1.25rem;
+    }
+
+    .project-icon {
+        padding: 0.5rem;
+    }
+
+    .project-details {
+        padding: 1rem;
+    }
+}

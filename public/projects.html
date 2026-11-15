@@ -48,13 +48,76 @@
         <div class="page-header">
             <div class="container" data-parallax="0.15">
                 <h1>Projects</h1>
-                <p>Explore my portfolio of innovative solutions</p>
+                <p>Selected projects in software, data and AI</p>
             </div>
         </div>
 
         <section class="projects-section">
             <div class="container">
                 <div class="projects-grid">
+                    <article class="project-card" data-project="tricard">
+                        <div class="project-header">
+                            <div class="project-icon" aria-hidden="true">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 15l4-4 4 2 6-7"/></svg>
+                            </div>
+                            <div class="project-info">
+                                <h2>Tricard</h2>
+                                <p class="project-subtitle">ESG and stock research dashboard</p>
+                                <p>Research companies by tracking ESG and controversy signals alongside timestamped stock prices.</p>
+                                <div class="project-tags">
+                                    <span class="tag">React</span>
+                                    <span class="tag">TypeScript</span>
+                                    <span class="tag">Node.js</span>
+                                    <span class="tag">SQLite</span>
+                                </div>
+                            </div>
+                            <button class="expand-btn" type="button" aria-label="Tricard details" aria-expanded="false" aria-controls="tricard-details">
+                                <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                                <svg class="chevron-up" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+                            </button>
+                        </div>
+                        <div class="project-details" id="tricard-details">
+                            <h3>Key Features</h3>
+                            <ul>
+                                <li>Organizes company research around environmental, social and governance signals.</li>
+                                <li>Shows Yahoo Finance quotes with session labels and timestamps.</li>
+                                <li>Tracks price momentum and lets users set price thresholds on the company page.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-project="ferris">
+                        <div class="project-header">
+                            <div class="project-icon" aria-hidden="true">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>
+                            </div>
+                            <div class="project-info">
+                                <h2>Ferris</h2>
+                                <p class="project-subtitle">NASA Space Apps climate research workspace</p>
+                                <p>Explore NASA climate records and satellite imagery through guided investigations and an interactive 3D globe.</p>
+                                <div class="project-tags">
+                                    <span class="tag">Astro</span>
+                                    <span class="tag">Python</span>
+                                    <span class="tag">NASA POWER</span>
+                                    <span class="tag">NASA GIBS</span>
+                                </div>
+                            </div>
+                            <button class="expand-btn" type="button" aria-label="Ferris details" aria-expanded="false" aria-controls="ferris-details">
+                                <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                                <svg class="chevron-up" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+                            </button>
+                        </div>
+                        <div class="project-details" id="ferris-details">
+                            <h3>Key Features</h3>
+                            <ul>
+                                <li>Explores temperature and rainfall records from 2001 to 2025 across six investigations.</li>
+                                <li>Shows long-term trends, seasonal anomalies and uncertainty, with tools to export evidence.</li>
+                                <li>Includes a machine learning lab where users can compare predictions against held-out observations and baselines.</li>
+                            </ul>
+                            <p class="project-actions"><a class="btn btn-primary" href="https://ferris.neilaryankota.com">Open Ferris</a> <a class="btn btn-secondary" href="https://github.com/AKTHEPRO47/ferris">View source</a></p>
+                        </div>
+                    </article>
+
                     <!-- AkitaVault -->
                     <div class="project-card" data-project="akitavault">
                         <div class="project-header">
@@ -71,12 +134,12 @@
                                     <span class="tag">Computer Vision</span>
                                 </div>
                             </div>
-                            <button class="expand-btn">
+                            <button class="expand-btn" type="button" aria-label="AkitaVault details" aria-expanded="false" aria-controls="akitavault-details">
                                 <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                                 <svg class="chevron-up" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
                             </button>
                         </div>
-                        <div class="project-details">
+                        <div class="project-details" id="akitavault-details">
                             <h3>Key Features</h3>
                             <ul>
                                 <li><strong>Intelligent Content Filtering:</strong> Real-time analysis of text and images using ML models to score content safety</li>
@@ -120,12 +183,12 @@
                                     <span class="tag">Flask</span>
                                 </div>
                             </div>
-                            <button class="expand-btn">
+                            <button class="expand-btn" type="button" aria-label="BridgeGen details" aria-expanded="false" aria-controls="bridgegen-details">
                                 <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                                 <svg class="chevron-up" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
                             </button>
                         </div>
-                        <div class="project-details">
+                        <div class="project-details" id="bridgegen-details">
                             <h3>Core Features Developed</h3>
                             <ul>
                                 <li><strong>Dual User System:</strong> Separate youth and elderly interfaces with role-based authentication and NRIC validation</li>
@@ -201,12 +264,12 @@
                                     <span class="tag">CLI</span>
                                 </div>
                             </div>
-                            <button class="expand-btn">
+                            <button class="expand-btn" type="button" aria-label="Mini Cricket Game details" aria-expanded="false" aria-controls="cricket-game-details">
                                 <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                                 <svg class="chevron-up" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
                             </button>
                         </div>
-                        <div class="project-details">
+                        <div class="project-details" id="cricket-game-details">
                             <h3>Gameplay Highlights</h3>
                             <ul>
                                 <li><strong>Authentic Match Flow:</strong> Overs, wickets, strike rotation, and run-rate pressure</li>
@@ -247,12 +310,12 @@
                                     <span class="tag">Firebase</span>
                                 </div>
                             </div>
-                            <button class="expand-btn">
+                            <button class="expand-btn" type="button" aria-label="Findustry details" aria-expanded="false" aria-controls="findustry-details">
                                 <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                                 <svg class="chevron-up" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
                             </button>
                         </div>
-                        <div class="project-details">
+                        <div class="project-details" id="findustry-details">
                             <h3>Key Features</h3>
                             <ul>
                                 <li><strong>Smart Matching Algorithm:</strong> Category-based matching system connecting businesses with relevant importers</li>
@@ -293,12 +356,12 @@
                                     <span class="tag">Computer Vision</span>
                                 </div>
                             </div>
-                            <button class="expand-btn">
+                            <button class="expand-btn" type="button" aria-label="SGResolve details" aria-expanded="false" aria-controls="sgresolve-details">
                                 <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                                 <svg class="chevron-up" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
                             </button>
                         </div>
-                        <div class="project-details">
+                        <div class="project-details" id="sgresolve-details">
                             <h3>Key Features</h3>
                             <ul>
                                 <li><strong>AI Image Analysis:</strong> Computer vision models classify issues from photos (potholes, litter, damaged infrastructure)</li>
