@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Lab - Neil Aryan Kota</title>
+    <link rel="icon" type="image/jpeg" href="images/profile.jpg">
+    <link rel="apple-touch-icon" href="images/profile.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Train and evaluate machine learning models on your own CSV, directly in your browser.">
+    <link rel="stylesheet" href="css/ml-lab.css">
+</head>
+<body>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <div class="bg-animated" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Neil Aryan Kota</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="ml-lab.html" class="active" aria-current="page">ML Lab</a></li>
+                <li><a href="trading.html">Trading</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="book.html">Book me</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
+    <main class="ml-lab container">
+        <header class="lab-title">
+            <h1>ML Lab</h1>
+            <p>Turn a CSV into a model. Test it on unseen rows, then use it to make predictions.</p>
+            <p class="lab-privacy">Training and predictions run on this device. Your data stays in this tab.</p>
+        </header>
+
+        <noscript><p>This lab needs JavaScript to train models in your browser.</p></noscript>
+
+        <div id="labWorkspace" hidden>
+            <div class="lab-setup">
+                <section class="lab-card" aria-labelledby="dataTitle">
+                    <h2 id="dataTitle">Load data</h2>
+                    <div class="lab-drop" id="dropZone">
+                        <label for="trainingFile">Choose or drop a CSV</label>
+                        <input type="file" id="trainingFile" accept=".csv,text/csv" aria-describedby="dataRequirements">
+                        <p id="dataRequirements">Header row, comma-separated, up to 2,500 rows, 40 columns and 1 MB.</p>
+                    </div>
+                    <div class="lab-actions lab-examples">
+                        <button type="button" class="btn btn-secondary" data-sample="regression">Try rent prediction</button>
+                        <button type="button" class="btn btn-secondary" data-sample="classification">Try weather classification</button>
+                    </div>
+                    <p class="lab-note">Both examples use synthetic data.</p>
+                    <p id="dataStatus" role="status" class="lab-status"></p>
+                    <details id="auditPanel" hidden>
+                        <summary>Inspect columns and missing values</summary>
+                        <div class="lab-table-wrap" id="auditTable"></div>
+                    </details>
+                </section>
+
+                <section class="lab-card" aria-labelledby="trainTitle">
+                    <h2 id="trainTitle">Train a model</h2>
+                    <p class="lab-note">Pick what you want to predict and the numeric inputs the model can use.</p>
+                    <form id="trainingForm">
+                        <fieldset id="trainingOptions" disabled>
+                            <div class="lab-field-grid">
+                                <label>Target column <select name="target" required></select></label>
+                                <label>Task
+                                    <select name="task">
+                                        <option value="regression">Regression · predict a number</option>
+                                        <option value="classification">Classification · predict a label</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <fieldset class="lab-features">
+                                <legend>Input columns</legend>
+                                <div id="featureOptions"></div>
+                            </fieldset>
+                            <details class="lab-split">
+                                <summary>Test split and random seed</summary>
+                                <div class="lab-field-grid">
+                                    <label>Holdout share
+                                        <select name="fraction">
+                                            <option value="0.2">20%</option>
+                                            <option value="0.25" selected>25%</option>
+                                            <option value="0.3">30%</option>
+                                        </select>
+                                    </label>
+                                    <label>Random seed <input name="seed" type="number" min="0" max="4294967295" value="42" required></label>
+                                </div>
+                            </details>
+                            <div class="lab-actions">
+                                <button class="btn btn-primary" type="submit" id="trainButton">Train model</button>
+                                <button class="btn btn-secondary" type="button" id="resetLab">Clear session</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                    <p id="trainStatus" role="status" class="lab-status"></p>
+                </section>
+            </div>
+
+            <div class="lab-results" id="labResults" hidden>
+                <section class="lab-card" aria-labelledby="evaluationTitle">
+                    <div class="lab-section-title">
+                        <h2 id="evaluationTitle">Holdout results</h2>
+                        <button type="button" id="downloadModel" class="btn btn-secondary">Download model JSON</button>
+                    </div>
+                    <p id="modelSummary" class="lab-note"></p>
+                    <div class="lab-table-wrap" id="metricsTable"></div>
+                    <div class="lab-table-wrap" id="confusionTable"></div>
+                    <p class="lab-note">Use independent data before relying on a model. Random splits can overstate performance if rows are duplicated, related, or ordered in time.</p>
+                </section>
+
+                <div class="lab-apply">
+                    <section class="lab-card" aria-labelledby="scenarioTitle">
+                        <h2 id="scenarioTitle">What-if analysis</h2>
+                        <p class="lab-note">Change an input to see how the model's prediction responds.</p>
+                        <form id="scenarioForm"></form>
+                        <p class="lab-prediction" id="scenarioResult" role="status"></p>
+                        <div id="sweepTools">
+                            <label for="sweepFeature">Sweep one input across its training range</label>
+                            <select id="sweepFeature"></select>
+                            <div class="lab-table-wrap" id="sweepTable"></div>
+                        </div>
+                    </section>
+                    <section class="lab-card" aria-labelledby="batchTitle">
+                        <h2 id="batchTitle">Batch predictions</h2>
+                        <p class="lab-note">Load new rows with the same input column names. Score them and download a CSV with the predictions appended.</p>
+                        <label for="batchFile">Prediction CSV</label>
+                        <input id="batchFile" type="file" accept=".csv,text/csv">
+                        <p id="batchStatus" role="status" class="lab-status"></p>
+                        <button class="btn btn-secondary" type="button" id="downloadPredictions" disabled>Download scored CSV</button>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Neil Aryan Kota</h3>
+                    <p>AI & Analytics Student | Product Builder | Aspiring Entrepreneur</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="ml-lab.html">ML Lab</a></li>
+                        <li><a href="trading.html">Trading</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="book.html">Book me</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://github.com/AKTHEPRO47" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://www.linkedin.com/in/neil-aryan-kota-9ab932304/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="mailto:aryan@akitavault.com">Email</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Neil Aryan Kota. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script type="module" src="js/ml-lab.mjs"></script>
+</body>
+</html>

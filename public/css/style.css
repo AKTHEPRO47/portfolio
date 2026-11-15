@@ -2680,6 +2680,6 @@ body.light-mode .booking-fields input {
 
 @media (min-width: 769px) {
     .nav-links {
-        gap: clamp(0.75rem, 1.65vw, 2rem);
+        gap: clamp(0.55rem, 1.3vw, 1.75rem);
     }
 }
